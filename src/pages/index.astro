@@ -38,67 +38,51 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   <!-- Hero -->
   <section class="hero">
-    <div class="hero-text">
-      <p class="hero-sub">Dog &amp; Lifestyle</p>
-      <h1 class="hero-vertical">いぬと暮らす日々</h1>
-      <a href="/shop" class="hero-cta">コレクションを見る</a>
+    <div class="hero-slides">
+      <img src="/images/hero1.jpg" class="hero-slide active" alt="いぬと暮らす日々">
+      <img src="/images/hero2.jpg" class="hero-slide" alt="いぬと暮らす日々">
+      <img src="/images/hero3.jpg" class="hero-slide" alt="いぬと暮らす日々">
     </div>
-    <div class="hero-illustration">
-      <!-- Hand-drawn style dog illustration -->
-      <svg viewBox="0 0 500 520" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Body -->
-        <ellipse cx="250" cy="320" rx="130" ry="100" fill="var(--cream)" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="6 3"/>
-        <!-- Head -->
-        <circle cx="250" cy="190" r="80" fill="var(--cream)" stroke="var(--accent)" stroke-width="2.5" stroke-dasharray="6 3"/>
-        <!-- Left ear (floppy) -->
-        <path d="M185 155 C165 130 140 130 138 158 C136 180 160 195 185 185Z" fill="#d4c4ae" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 3"/>
-        <!-- Right ear (floppy) -->
-        <path d="M315 155 C335 130 360 130 362 158 C364 180 340 195 315 185Z" fill="#d4c4ae" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 3"/>
-        <!-- Eyes -->
-        <circle cx="220" cy="185" r="12" fill="var(--ink)" opacity="0.85"/>
-        <circle cx="280" cy="185" r="12" fill="var(--ink)" opacity="0.85"/>
-        <circle cx="215" cy="181" r="4" fill="#fff" opacity="0.7"/>
-        <circle cx="275" cy="181" r="4" fill="#fff" opacity="0.7"/>
-        <!-- Nose -->
-        <ellipse cx="250" cy="210" rx="12" ry="9" fill="var(--ink)" opacity="0.75"/>
-        <circle cx="246" cy="207" r="3" fill="#fff" opacity="0.5"/>
-        <!-- Mouth -->
-        <path d="M238 222 Q250 234 262 222" stroke="var(--ink)" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.7"/>
-        <!-- Front legs -->
-        <rect x="175" y="390" width="40" height="90" rx="20" fill="var(--cream)" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 3"/>
-        <rect x="285" y="390" width="40" height="90" rx="20" fill="var(--cream)" stroke="var(--accent)" stroke-width="2" stroke-dasharray="5 3"/>
-        <!-- Paws -->
-        <ellipse cx="195" cy="485" rx="24" ry="12" fill="#d4c4ae" stroke="var(--accent)" stroke-width="1.5"/>
-        <ellipse cx="305" cy="485" rx="24" ry="12" fill="#d4c4ae" stroke="var(--accent)" stroke-width="1.5"/>
-        <!-- Tail -->
-        <path d="M375 300 Q420 260 430 300 Q440 340 400 350 Q380 355 370 340" stroke="var(--accent)" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="7 4"/>
-        <!-- Collar -->
-        <path d="M195 260 Q250 275 305 260" stroke="var(--accent)" stroke-width="4" fill="none" stroke-linecap="round"/>
-        <circle cx="250" cy="270" r="8" fill="var(--accent)" opacity="0.6"/>
-        <!-- Spot decoration -->
-        <ellipse cx="220" cy="330" rx="25" ry="18" fill="var(--accent)" opacity="0.12"/>
-        <ellipse cx="290" cy="310" rx="18" ry="14" fill="var(--accent)" opacity="0.1"/>
-      </svg>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-vertical">いぬと暮らす日々</h1>
+    </div>
+    <div class="scroll-hint">
+      <span class="scroll-hint-text">scroll</span>
+      <div class="scroll-hint-line"></div>
     </div>
   </section>
+
+  <script>
+    const slides = document.querySelectorAll('.hero-slide');
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 4000);
+  </script>
 
   <!-- Concept -->
   <section class="concept">
     <div>
       <h2 class="concept-heading">
         いぬがいる暮らしを、<br/>
-        もっと<span>豊か</span>に。
+        もっと<span>カラフル</span>に。
       </h2>
     </div>
     <div class="concept-body">
       <p>
-        omoteselect は、いぬとともに暮らす人々のために選りすぐったライフスタイルアイテムをお届けするセレクトショップです。
+        omoteselectは、いぬとともに暮らす人々のために、選りすぐりのライフスタイルアイテムをお届けするセレクトショップです。
       </p>
       <p>
-        リネン、陶器、ウール、真鍮——自然素材がもつ静かな美しさと、長く使えるたしかな品質。毎日の散歩も、食事も、眠りも、少しだけ特別な時間になるように。
+        毎日の散歩や食事、眠りの時間が、ほんの少し特別になるように、お出かけ前のワクワクや、外で過ごすひとときの楽しさを、より豊かに彩ります。
       </p>
       <p>
-        いぬとの日々を、もっとていねいに。
+        ワンちゃんのためのアイテムはもちろん、飼い主様の暮らしにも寄り添う雑貨もセレクト。
+      </p>
+      <p>
+        いぬとの日々が、よりカラフルで心地よいものになるようなお店を目指しています。
       </p>
     </div>
   </section>
